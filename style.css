@@ -72,10 +72,26 @@ button:hover {
     justify-content: center;
     align-items: flex-end;
     gap: 2rem;
+    position: relative;
 }
 
+.cart-container {
+    position: absolute; 
+    bottom: 2rem;
+    right: 4rem;
+}
 .cart {
-    margin-bottom: 2rem;
+    position: relative; 
+}
+
+.cart-amount {
+    position: absolute;
+    top: -15px;
+    right: -10px;
+    background-color: white;
+    padding: 10px 15px;
+    border-radius: 50%;
+    color: #222;
 }
 
 .product {
