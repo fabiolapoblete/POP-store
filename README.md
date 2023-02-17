@@ -13,4 +13,4 @@ Följande innehåll skall finnas:
 Level-ups:
 - Använd dig av Local Storage för att kunna visa de valde varorna på en ny HTML-sida
 
-### Uppgift JS-kursen
+### Uppgift i JS-kursen
