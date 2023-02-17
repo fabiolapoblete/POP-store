@@ -13,34 +13,44 @@ async function getProducts() {
 }
 
 function renderProductsToUI() {
-  for (let i = 0; i < products.length; i++) {
+  products.forEach((item) => {
     let product = document.createElement("article");
+    let productsContainer = document.querySelector(".products-container");
+
     product.classList.add("product");
-    product.setAttribute("product-id", i);
 
     product.innerHTML = `
-            <img src="img/${products[i].img}"/>
-            <h3>${products[i].name}</h3>
-            <h4>${products[i].pricePerHekto} kr/hg</h4>
-            <button>Add to cart</button>
-    `;
+      <img src="img/${item.img}"/>
+      <h3>${item.name}</h3>
+      <h4>${item.pricePerHekto} kr/hg</h4>
+      <button id="${item.SerialNumber}">Add to cart</button>
+   `;
 
-    product.addEventListener("click", addToCart);
-
-    let productsContainer = document.querySelector(".products-container");
     productsContainer.appendChild(product);
-  }
+  });
+
+  addToCart();
 }
 
 function addToCart() {
-  let productId = this.getAttribute("product-id");
-  let chosenProduct = products[productId];
+  let buyButton = document.querySelectorAll("button");
 
-  shoppingCart.push(chosenProduct);
+  buyButton.forEach((button) => {
+    button.addEventListener("click", (e) => {
+      let serialNumber = e.target.id;
+      let index = products.findIndex(
+        (product) => product.SerialNumber === serialNumber
+      );
 
-  localStorage.setItem("product", JSON.stringify(shoppingCart));
+      let chosenProduct = products[index];
+      shoppingCart.push(chosenProduct);
 
-  console.log("Card has been clicked");
-  console.log(window);
-  console.log(shoppingCart);
+      localStorage.setItem("product", JSON.stringify(shoppingCart));
+
+      console.log(serialNumber);
+      console.log(index);
+      console.log(shoppingCart);
+      console.log(window);
+    });
+  });
 }
