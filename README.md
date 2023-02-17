@@ -14,3 +14,5 @@ Level-ups:
 - Använd dig av Local Storage för att kunna visa de valde varorna på en ny HTML-sida
 
 ### Uppgift i JS-kursen
+- Fetch
+- Localstorage
